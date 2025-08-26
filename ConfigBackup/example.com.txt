@@ -1,1 +1,1 @@
-This is the initial content for example.com website.
+This is the UPDATED content for example.com website. The old content is now in git history!
