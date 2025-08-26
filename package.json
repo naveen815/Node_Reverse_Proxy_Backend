@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/naveen815/Node_Reverse_Proxy_Backend/issues"
   },
-  "homepage": "https://github.com/naveen815/Node_Reverse_Proxy_Backend#readme"
+  "homepage": "https://github.com/naveen815/Node_Reverse_Proxy_Backend#readme",
+  "dependencies": {
+    "ssh2": "^1.17.0"
+  }
 }

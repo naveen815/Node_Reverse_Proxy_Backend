@@ -26,7 +26,7 @@ async function updateDomainContent(domainName, fileContent) {
 
         // Sanitize domain name for filename
         const sanitizedDomain = domainName.replace(/[^a-zA-Z0-9.-]/g, '_');
-        const fileName = `${sanitizedDomain}.txt`;
+        const fileName = `${sanitizedDomain}.conf`;
         const filePath = path.join(domainsPath, fileName);
         const relativeFilePath = path.join(DOMAINS_FOLDER, fileName);
         
@@ -106,7 +106,7 @@ async function updateDomainContent(domainName, fileContent) {
 async function getOldContentFromGit(domainName, commitHash = 'HEAD~1') {
     try {
         const sanitizedDomain = domainName.replace(/[^a-zA-Z0-9.-]/g, '_');
-        const fileName = `${sanitizedDomain}.txt`;
+        const fileName = `${sanitizedDomain}.conf`;
         const relativeFilePath = path.join(DOMAINS_FOLDER, fileName);
         
         const oldContent = execSync(`git show ${commitHash}:${relativeFilePath}`, { encoding: 'utf-8' });
@@ -124,8 +124,8 @@ async function listAllDomains() {
         const files = await fs.readdir(domainsPath);
         
         const domains = files
-            .filter(file => file.endsWith('.txt'))
-            .map(file => file.replace('.txt', '').replace(/_/g, '.'))
+            .filter(file => file.endsWith('.conf'))
+            .map(file => file.replace('.conf', '').replace(/_/g, '.'))
             .sort();
             
         return domains;
@@ -139,7 +139,7 @@ async function listAllDomains() {
 async function getDomainContent(domainName) {
     try {
         const sanitizedDomain = domainName.replace(/[^a-zA-Z0-9.-]/g, '_');
-        const fileName = `${sanitizedDomain}.txt`;
+        const fileName = `${sanitizedDomain}.conf`;
         const filePath = path.join(process.cwd(), DOMAINS_FOLDER, fileName);
         
         const content = await fs.readFile(filePath, 'utf-8');

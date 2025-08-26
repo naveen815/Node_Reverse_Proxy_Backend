@@ -1,4 +1,4 @@
-const { updateDomainContent, getOldContentFromGit, listAllDomains, getDomainContent } = require('./domainContentManager');
+const { updateDomainContent, getOldContentFromGit, listAllDomains, getDomainContent } = require('./');
 
 async function runTest() {
     console.log('🧪 Starting domain content management test with separate folders...\n');
